@@ -16,4 +16,6 @@ jobs:
 
       - name: Install UiPath CLI
         run: |
-          dotnet 
+          choco install uipath.cli -y
+          uipcli --version
+
