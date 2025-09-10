@@ -16,23 +16,4 @@ jobs:
 
       - name: Install UiPath CLI
         run: |
-          dotnet tool install --global UiPath.CLI
-
-      - name: Pack UiPath project
-        run: |
-          uipcli pack MyUiPathProcess/project.json -o out --auto-version
-
-      - name: Deploy to Orchestrator
-        run: |
-          uipcli deploy out/*.nupkg `
-            --url $env:UIPATH_ORCH_URL `
-            --tenant $env:UIPATH_TENANT `
-            --clientId $env:UIPATH_CLIENT_ID `
-            --userKey $env:UIPATH_USER_KEY `
-            --folder $env:UIPATH_FOLDER
-        env:
-          UIPATH_ORCH_URL: ${{ secrets.UIPATH_ORCH_URL }}
-          UIPATH_TENANT: ${{ secrets.UIPATH_TENANT }}
-          UIPATH_CLIENT_ID: ${{ secrets.UIPATH_CLIENT_ID }}
-          UIPATH_USER_KEY: ${{ secrets.UIPATH_USER_KEY }}
-          UIPATH_FOLDER: ${{ secrets.UIPATH_FOLDER }}
+          dotnet 
