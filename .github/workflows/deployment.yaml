@@ -14,8 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install UiPath CLI
+      - name: Install UiPath CLI via NuGet
+        shell: pwsh
         run: |
-          choco install uipath.cli -y
+          Install-PackageProvider -Name NuGet -Force
+          Install-Module -Name UiPath.CLI -Force -Scope CurrentUser
           uipcli --version
+
 
